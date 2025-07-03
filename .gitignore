@@ -1,0 +1,39 @@
+# === GLOBAL ===
+node_modules/
+.env
+.DS_Store
+dist/
+build/
+*.log
+
+# === VITE (frontend/) ===
+coursey/node_modules/
+coursey/.env
+coursey/dist/
+coursey/.vite/
+coursey/.next/
+coursey/.parcel-cache/
+coursey/.turbo/
+
+# === EXPRESS (server/) ===
+server/node_modules/
+server/.env
+server/dist/
+server/build/
+server/logs/
+server/npm-debug.log*
+server/yarn-debug.log*
+server/yarn-error.log*
+
+# === IDE/Editor junk ===
+*.swp
+*.swo
+*.swn
+.idea/
+.vscode/
+*.code-workspace
+
+# === OS Junk ===
+Thumbs.db
+ehthumbs.db
+
