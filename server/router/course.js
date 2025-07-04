@@ -20,7 +20,7 @@ courseRouter.get("/course/:id", async (req, res, next) => {
         next(err);
     }
 });
-courseRouter.post("/course", authenticateAdmin, async (req, res, next) => {
+courseRouter.post("/", authenticateAdmin, async (req, res, next) => {
     try {
         const { title, description, duration, price } = req.body;
         await courseModel.create({
@@ -35,7 +35,7 @@ courseRouter.post("/course", authenticateAdmin, async (req, res, next) => {
         next(err);
     }
 })
-courseRouter.put("/course/:id", authenticateAdmin, async (req, res, next) => {
+courseRouter.put("/:id", authenticateAdmin, async (req, res, next) => {
     try {
         const { title, description, duration, price } = req.body;
         const course = await courseModel.findById(req.params.id);
@@ -49,7 +49,7 @@ courseRouter.put("/course/:id", authenticateAdmin, async (req, res, next) => {
         next(err);
     }
 });
-courseRouter.delete("/course/:id", authenticateAdmin, async (req, res, next) => {
+courseRouter.delete("/:id", authenticateAdmin, async (req, res, next) => {
     try {
         await courseModel.findByIdAndDelete(req.params.id)
         res.json({ messahe: "course sucessfully deleted" });

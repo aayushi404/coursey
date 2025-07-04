@@ -10,7 +10,8 @@ import { Logout } from './routes/logout.jsx';
 import { UserDashboard } from './routes/user/dashboard.jsx';
 import { AdminDashboard } from './routes/admin/dashboard.jsx';
 import { Courses } from './components/courses.jsx';
-
+import { AddCourse } from './routes/admin/addCourse.jsx';
+import { AdminCourse } from './routes/admin/adminCourse.jsx';
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -35,7 +36,12 @@ const Router = createBrowserRouter([
         element: <UserDashboard />,
         children: [
           { index: true, element: <Courses /> },
-          { path: 'logout', element: <Logout /> }
+          { path: 'logout', element: <Logout /> },
+          {
+            path: ':courseId',
+            element: <UserCourse />,
+            children:[{path:'purchase', element: <PurchaseCourse />}]
+          }
         ]
       },
       {
@@ -43,7 +49,13 @@ const Router = createBrowserRouter([
         element: <AdminDashboard />,
         children: [
           { index: true, element: <Courses /> },
-          { path: 'logout', element: <Logout /> }
+          { path: 'logout', element: <Logout /> },
+          {path:'course', element: <AddCourse />},
+          {
+            path: ':courseId',
+            element: <AdminCourse />,
+            children:[{path:'update', element: <UpdateCourse />}]
+          }
         ]
       }
     ]
