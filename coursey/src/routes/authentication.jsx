@@ -9,7 +9,7 @@ export const Authentication = () => {
             if (loggedInAs === 'admin') navigate('/admin')
             else navigate('/user')
         }
-    },[])
+    },[isAuth])
     
     return (
         <div>
